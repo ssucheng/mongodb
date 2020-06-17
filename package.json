@@ -4,7 +4,8 @@
   "description": "mongodb数据库操作",
   "main": "01.js",
   "dependencies": {
-    "mongoose": "^5.9.19"
+    "mongoose": "^5.9.19",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
