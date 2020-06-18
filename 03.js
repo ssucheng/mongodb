@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     email:String,
     password:Number
 });
-const users = mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema);
 // 这个时候就可以使用net start MongoDB和net stop MongoDB来启动跟关闭mongo服务了。 (这个是开启关闭服务 与03，js  无关)
 
 // 导入json数据到数据库   mongoimport  需要配置环境变量  电脑属性 高级 环境变量 path 添加 mongoimport 文件目录 到binne   
@@ -35,6 +35,18 @@ const users = mongoose.model('User',userSchema);
 
 // 如下所示，先删除 mydb1 库下面的 集合 c1，然后再将本地之前导出好的进行导入恢复
 // 返回的数组
-// users.find().then(result => console.log(result));
+// User.find().then(result => console.log(result));
 // 返回的也是数组
-users.find({name:'王二麻子'}).then(result => console.log(result));
+// User.find({name:'王二麻子'}).then(result => console.log(result));
+//匹配大于小于
+// User.find({age:{$gt:20,$lt:50}}).then(result => console.log(result));
+//匹配包含
+// User.find({hobbies:{$in:['敲代码']}}).then(result => console.log(result));
+// 选择要查询的字段
+// User.find().select('name age').then(result => console.log(result));
+// 将数据按照年龄进行排序
+// User.find().sort('age').then(result => console.log(result));
+// skip跳过多少条数据 limit限制查询数量
+// User.find().skip(2).limit(2).then(result => console.log(result));
+
+
